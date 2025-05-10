@@ -1,29 +1,21 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 20
-    commands:
-      - echo "Installing NodeJS version 20..."
-      - npm install -g react-scripts  # Ensures build tools are available
-      
-  pre_build:
-    commands:
-      - echo "Installing dependencies..."
-      - npm install
-      - echo "Verifying project structure..."
-      - ls -la  # Debugging: shows root directory contents
-      - ls -la public/  # Debugging: verifies index.html exists
-
-  build:
-    commands:
-      - echo "Building the app..."
-      - npm run build
-      - echo "Verifying build output..."
-      - ls -la build/  # Debugging: confirms build was created
-
+    install:
+        runtime-versions:
+            nodejs: 20
+        commands:
+            - echo installing nodeJS version 20...
+    pre_build:
+        commands:
+            - echo installing dependencies...
+            - npm install
+    build:
+        commands:
+            - echo building the app...
+            - npm run build
 artifacts:
-  files:
-    - '**/*'
-  base-directory: 'build'
+    files:
+        - "**/*"
+    discard-paths: no
+    base-directory: build
